@@ -1,4 +1,3 @@
-
 using Microsoft.EntityFrameworkCore;
 
 
@@ -22,7 +21,7 @@ public class AppDbContext : DbContext
         {
             string connectionString =
                 Environment.GetEnvironmentVariable("DB_CONNECTION")
-                ?? throw new Exception("Database connection string is missing.");
+                ?? "Server=(localdb)\\MSSQLLocalDB;Database=NationalBankDb;Trusted_Connection=True;TrustServerCertificate=True";
 
             optionsBuilder.UseSqlServer(connectionString);
         }
